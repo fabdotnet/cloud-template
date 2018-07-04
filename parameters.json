@@ -1,0 +1,150 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_devBoqWebApp_name": {
+            "value": null
+        },
+        "sites_devBoqApiWeb_name": {
+            "value": null
+        },
+        "sites_ReactFrontend_name": {
+            "value": null
+        },
+        "applicationGateways_Dev_name": {
+            "value": null
+        },
+        "components_devBoqWebApp_name": {
+            "value": null
+        },
+        "publicIPAddresses_dev2_ip_name": {
+            "value": null
+        },
+        "virtualNetworks_dev2_vnet_name": {
+            "value": null
+        },
+        "virtualNetworks_dev3_vnet_name": {
+            "value": null
+        },
+        "config_web_name": {
+            "value": null
+        },
+        "config_web_name_1": {
+            "value": null
+        },
+        "config_web_name_2": {
+            "value": null
+        },
+        "applicationGateways_dev3_agw_name": {
+            "value": null
+        },
+        "publicIPAddresses_Dev_Waf_ip_name": {
+            "value": null
+        },
+        "publicIPAddresses_dev3_agw_ip_name": {
+            "value": null
+        },
+        "serverfarms_BoqStandardServicePlan_name": {
+            "value": null
+        },
+        "alertrules_Availability_DevRelease_name": {
+            "value": null
+        },
+        "webtests_react_via_agw_devboqwebapp_name": {
+            "value": null
+        },
+        "alertrules_FailedRequests_DevRelease_name": {
+            "value": null
+        },
+        "alertrules_ServerExceptions_DevRelease_name": {
+            "value": null
+        },
+        "alertrules_ServerResponseTime_DevRelease_name": {
+            "value": null
+        },
+        "subnets_default_name": {
+            "value": null
+        },
+        "subnets_default_name_1": {
+            "value": null
+        },
+        "deployments_51530596085606_name": {
+            "value": null
+        },
+        "deployments_41530594852477_name": {
+            "value": null
+        },
+        "deployments_31530593681895_name": {
+            "value": null
+        },
+        "deployments_21530507140582_name": {
+            "value": null
+        },
+        "deployments_11530505093552_name": {
+            "value": null
+        },
+        "virtualNetworks_devEnvironmentResourceGroup_name": {
+            "value": null
+        },
+        "alertrules_Failure_Anomalies___devBoqWebApp_name": {
+            "value": null
+        },
+        "subnets_default_name_2": {
+            "value": null
+        },
+        "hostNameBindings_devboqwebapp.azurewebsites.net_name": {
+            "value": null
+        },
+        "hostNameBindings_devboqapiweb.azurewebsites.net_name": {
+            "value": null
+        },
+        "hostNameBindings_reactfrontend.azurewebsites.net_name": {
+            "value": null
+        },
+        "alertrules_react_via_agw_devboqwebapp_e215fba6_f2ee_410e_8b27_1ec9b1b3a31f_name": {
+            "value": null
+        },
+        "applicationGateways_Dev_id": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_1": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_2": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_3": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_4": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_5": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_6": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_7": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_8": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_9": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_10": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_11": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_12": {
+            "value": null
+        },
+        "applicationGateways_Dev_id_13": {
+            "value": null
+        }
+    }
+}

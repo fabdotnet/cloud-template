@@ -1,0 +1,1790 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_devBoqWebApp_name": {
+            "defaultValue": "devBoqWebApp",
+            "type": "String"
+        },
+        "sites_devBoqApiWeb_name": {
+            "defaultValue": "devBoqApiWeb",
+            "type": "String"
+        },
+        "sites_ReactFrontend_name": {
+            "defaultValue": "ReactFrontend",
+            "type": "String"
+        },
+        "applicationGateways_Dev_name": {
+            "defaultValue": "Dev",
+            "type": "String"
+        },
+        "components_devBoqWebApp_name": {
+            "defaultValue": "devBoqWebApp",
+            "type": "String"
+        },
+        "publicIPAddresses_dev2_ip_name": {
+            "defaultValue": "dev2-ip",
+            "type": "String"
+        },
+        "virtualNetworks_dev2_vnet_name": {
+            "defaultValue": "dev2-vnet",
+            "type": "String"
+        },
+        "virtualNetworks_dev3_vnet_name": {
+            "defaultValue": "dev3-vnet",
+            "type": "String"
+        },
+        "config_web_name": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "config_web_name_1": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "config_web_name_2": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "applicationGateways_dev3_agw_name": {
+            "defaultValue": "dev3-agw",
+            "type": "String"
+        },
+        "publicIPAddresses_Dev_Waf_ip_name": {
+            "defaultValue": "Dev-Waf-ip",
+            "type": "String"
+        },
+        "publicIPAddresses_dev3_agw_ip_name": {
+            "defaultValue": "dev3-agw-ip",
+            "type": "String"
+        },
+        "serverfarms_BoqStandardServicePlan_name": {
+            "defaultValue": "BoqStandardServicePlan",
+            "type": "String"
+        },
+        "alertrules_Availability_DevRelease_name": {
+            "defaultValue": "Availability_DevRelease",
+            "type": "String"
+        },
+        "webtests_react_via_agw_devboqwebapp_name": {
+            "defaultValue": "react via agw-devboqwebapp",
+            "type": "String"
+        },
+        "alertrules_FailedRequests_DevRelease_name": {
+            "defaultValue": "FailedRequests_DevRelease",
+            "type": "String"
+        },
+        "alertrules_ServerExceptions_DevRelease_name": {
+            "defaultValue": "ServerExceptions_DevRelease",
+            "type": "String"
+        },
+        "alertrules_ServerResponseTime_DevRelease_name": {
+            "defaultValue": "ServerResponseTime_DevRelease",
+            "type": "String"
+        },
+        "subnets_default_name": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "subnets_default_name_1": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "deployments_51530596085606_name": {
+            "defaultValue": "51530596085606",
+            "type": "String"
+        },
+        "deployments_41530594852477_name": {
+            "defaultValue": "41530594852477",
+            "type": "String"
+        },
+        "deployments_31530593681895_name": {
+            "defaultValue": "31530593681895",
+            "type": "String"
+        },
+        "deployments_21530507140582_name": {
+            "defaultValue": "21530507140582",
+            "type": "String"
+        },
+        "deployments_11530505093552_name": {
+            "defaultValue": "11530505093552",
+            "type": "String"
+        },
+        "virtualNetworks_devEnvironmentResourceGroup_name": {
+            "defaultValue": "devEnvironmentResourceGroup",
+            "type": "String"
+        },
+        "alertrules_Failure_Anomalies___devBoqWebApp_name": {
+            "defaultValue": "Failure Anomalies - devBoqWebApp",
+            "type": "String"
+        },
+        "subnets_default_name_2": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "hostNameBindings_devboqwebapp.azurewebsites.net_name": {
+            "defaultValue": "devboqwebapp.azurewebsites.net",
+            "type": "String"
+        },
+        "hostNameBindings_devboqapiweb.azurewebsites.net_name": {
+            "defaultValue": "devboqapiweb.azurewebsites.net",
+            "type": "String"
+        },
+        "hostNameBindings_reactfrontend.azurewebsites.net_name": {
+            "defaultValue": "reactfrontend.azurewebsites.net",
+            "type": "String"
+        },
+        "alertrules_react_via_agw_devboqwebapp_e215fba6_f2ee_410e_8b27_1ec9b1b3a31f_name": {
+            "defaultValue": "react via agw-devboqwebapp-e215fba6-f2ee-410e-8b27-1ec9b1b3a31f",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/probes/webappprobe2",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_1": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/frontendIPConfigurations/appGatewayFrontendIP",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_2": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/frontendPorts/appGatewayFrontendPort",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_3": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/frontendIPConfigurations/appGatewayFrontendIP",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_4": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/frontendPorts/apiListener",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_5": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/backendAddressPools/apiPool",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_6": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_7": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/backendAddressPools/apiPool",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_8": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_9": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/httpListeners/appGatewayHttpListener",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_10": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/backendAddressPools/appGatewayBackendPool",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_11": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/backendHttpSettingsCollection/appGatewayBackendHttpSettings",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_12": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/httpListeners/apiListener",
+            "type": "String"
+        },
+        "applicationGateways_Dev_id_13": {
+            "defaultValue": "/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev/urlPathMaps/apiPath",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/microsoft.insights/alertrules/Failure Anomalies - devBoqWebApp'.",
+            "type": "microsoft.insights/alertrules",
+            "name": "[parameters('alertrules_Failure_Anomalies___devBoqWebApp_name')]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "tags": {
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/microsoft.insights/components/devBoqWebApp": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('alertrules_Failure_Anomalies___devBoqWebApp_name')]",
+                "description": "",
+                "isEnabled": true,
+                "condition": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                    "dataSource": {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                        "resourceUri": "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]",
+                        "metricNamespace": null,
+                        "metricName": "advanced::A3108E3D-5E26-44CF-B232-783F5E20EF10::ewAiAEgAeQBwAGUAcgBpAG8AbgBBAHAAcABsAGkAYwBhAHQAaQBvAG4AUwBpAGQAIgA6AG4AdQBsAGwALAAiAEgAeQBwAGUAcgBpAG8AbgBTAHUAYgBqAGUAYwB0AFMAaQBkACIAOgBuAHUAbABsACwAIgBIAHkAcABlAHIAaQBvAG4ATwBiAHMAZQByAHYAZQByAFMAaQBkACIAOgBuAHUAbABsACwAIgBDAHUAcwB0AG8AbQBlAHIAQQBjAGMAbwB1AG4AdABJAGQAIgA6ACIAMAAwADAAMAAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAwADAAMAAwADAAMAAwADAAIgAsACIAQQBwAHAAbABpAGMAYQB0AGkAbwBuAE4AYQBtAGUAIgA6AG4AdQBsAGwALAAiAEEAcABwAGwAaQBjAGEAdABpAG8AbgBJAGQAIgA6AG4AdQBsAGwALAAiAFAAcgBvAGYAaQBsAGUASQBkACIAOgAwACwAIgBXAGkAbgBkAG8AdwBTAGkAegBlAEkAbgBNAGkAbgB1AHQAZQBzACIAOgA2ADAALAAiAE0AZQB0AHIAaQBjAE4AYQBtAGUAIgA6ACIAIgAsACIAVABoAHIAZQBzAGgAbwBsAGQAIgA6ADIALgAwACwAIgBBAGwAZQByAHQAVABlAG0AcABsAGEAdABlAEkAZAAiADoAIgAiACwAIgBSAHUAbABlAEkAZAAiADoAIgAiACwAIgBSAHUAbABlAE4AYQBtAGUAIgA6ACIAIgAsACIAUgB1AGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACIAIgAsACIAUgBlAHMAbwB1AHIAYwBlAEkAZAAiADoAbgB1AGwAbAAsACIAUwB1AGIAcwBjAHIAaQBwAHQAaQBvAG4ASQBkACIAOgBuAHUAbABsACwAIgBBAGcAZwByAGUAZwBhAHQAZQBGAHUAbgBjAHQAaQBvAG4AIgA6ACIAIgAsACIAQwBvAG0AcABhAHIAaQBzAG8AbgBPAHAAZQByAGEAdABvAHIAIgA6ACIAewBcACIAQgBhAHMAZQBsAGkAbgBlAFQAaQBtAGUAcwBwAGEAbgBcACIAOgBcACIAMAAwADoANAAwADoAMAAwAFwAIgAsAFwAIgBJAG4AcwBpAGcAaAB0AHMAUwBlAHIAdgBpAGMAZQBMAGEAZwBcACIAOgBcACIAMAAwADoAMAAwADoAMAAwAFwAIgAsAFwAIgBCAHUAZgBmAGUAcgBUAGkAbQBlAFwAIgA6AFwAIgAwADAAOgAwADEAOgAwADAAXAAiACwAXAAiAEIAbABvAGIAUwB0AG8AcgBhAGcAZQBMAG8AZwBnAGkAbgBnAEUAbgBhAGIAbABlAGQAXAAiADoAZgBhAGwAcwBlACwAXAAiAFUAcwBlAHIAUwB1AHAAcAByAGUAcwBzAGkAbwBuAHMAXAAiADoAbgB1AGwAbAAsAFwAIgBQAHIAbwBmAGkAbABlAEkAZABcACIAOgAwACwAXAAiAEUAbQBhAGkAbABUAHkAcABlAFwAIgA6ADAALABcACIAUgBkAGQARgBhAGkAbAB1AHIAZQBzAFMAcABpAGsAZQBUAGgAcgBlAHMAaABvAGwAZABcACIAOgAzAC4AMAAsAFwAIgBSAGEAdwBQAHIAbwBhAGMAdABpAHYAZQBSAHUAbABlAEMAbwBuAGYAaQBnAFwAIgA6AG4AdQBsAGwAfQAiACwAIgBFAG4AYQBiAGwAZQBTAGUAbgBkAEUAbQBhAGkAbABUAG8AQwB1AHMAdABvAG0AIgA6AGYAYQBsAHMAZQAsACIAQwB1AHMAdABvAG0ARQBtAGEAaQBsAHMARQBuAGMAbwBkAGUAZAAiADoAIgAiACwAIgBFAG4AYQBiAGwAZQBTAGUAbgBkAEUAbQBhAGkAbABUAG8ATwB3AG4AZQByAHMAIgA6AGYAYQBsAHMAZQB9AA=="
+                    },
+                    "operator": "GreaterThan",
+                    "threshold": 2,
+                    "windowSize": "PT1H"
+                },
+                "action": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+                    "sendToServiceOwners": true,
+                    "customEmails": []
+                }
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/microsoft.insights/alertrules/Availability_DevRelease'.",
+            "type": "microsoft.insights/alertrules",
+            "name": "[parameters('alertrules_Availability_DevRelease_name')]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "tags": {
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Insights/components/devBoqWebApp": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('alertrules_Availability_DevRelease_name')]",
+                "description": "Updated via https://qdigitalcode.visualstudio.com/0e465833-f498-491e-892d-5ae542070e79/_release?releaseId=4&_a=release-summary",
+                "isEnabled": true,
+                "condition": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                    "dataSource": {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                        "resourceUri": "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]",
+                        "metricNamespace": null,
+                        "metricName": "availability.availabilityMetric.value"
+                    },
+                    "operator": "LessThan",
+                    "threshold": 99,
+                    "windowSize": "PT5M"
+                },
+                "action": null
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/microsoft.insights/alertrules/FailedRequests_DevRelease'.",
+            "type": "microsoft.insights/alertrules",
+            "name": "[parameters('alertrules_FailedRequests_DevRelease_name')]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "tags": {
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Insights/components/devBoqWebApp": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('alertrules_FailedRequests_DevRelease_name')]",
+                "description": "Updated via https://qdigitalcode.visualstudio.com/0e465833-f498-491e-892d-5ae542070e79/_release?releaseId=4&_a=release-summary",
+                "isEnabled": true,
+                "condition": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                    "dataSource": {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                        "resourceUri": "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]",
+                        "metricNamespace": null,
+                        "metricName": "requestFailed.count"
+                    },
+                    "operator": "GreaterThan",
+                    "threshold": 5,
+                    "windowSize": "PT5M"
+                },
+                "action": null
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/microsoft.insights/alertrules/ServerResponseTime_DevRelease'.",
+            "type": "microsoft.insights/alertrules",
+            "name": "[parameters('alertrules_ServerResponseTime_DevRelease_name')]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "tags": {
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Insights/components/devBoqWebApp": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('alertrules_ServerResponseTime_DevRelease_name')]",
+                "description": "Updated via https://qdigitalcode.visualstudio.com/0e465833-f498-491e-892d-5ae542070e79/_release?releaseId=4&_a=release-summary",
+                "isEnabled": true,
+                "condition": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                    "dataSource": {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                        "resourceUri": "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]",
+                        "metricNamespace": null,
+                        "metricName": "request.duration"
+                    },
+                    "operator": "GreaterThan",
+                    "threshold": 5,
+                    "windowSize": "PT5M"
+                },
+                "action": null
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/microsoft.insights/alertrules/ServerExceptions_DevRelease'.",
+            "type": "microsoft.insights/alertrules",
+            "name": "[parameters('alertrules_ServerExceptions_DevRelease_name')]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "tags": {
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Insights/components/devBoqWebApp": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('alertrules_ServerExceptions_DevRelease_name')]",
+                "description": "Updated via https://qdigitalcode.visualstudio.com/0e465833-f498-491e-892d-5ae542070e79/_release?releaseId=4&_a=release-summary",
+                "isEnabled": true,
+                "condition": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                    "dataSource": {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                        "resourceUri": "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]",
+                        "metricNamespace": null,
+                        "metricName": "basicExceptionServer.count"
+                    },
+                    "operator": "GreaterThan",
+                    "threshold": 5,
+                    "windowSize": "PT5M"
+                },
+                "action": null
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/components', parameters('components_devBoqWebApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/microsoft.insights/alertrules/react via agw-devboqwebapp-e215fba6-f2ee-410e-8b27-1ec9b1b3a31f'.",
+            "type": "microsoft.insights/alertrules",
+            "name": "[parameters('alertrules_react_via_agw_devboqwebapp_e215fba6_f2ee_410e_8b27_1ec9b1b3a31f_name')]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "tags": {
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/microsoft.insights/components/devBoqWebApp": "Resource",
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/microsoft.insights/webtests/react via agw-devboqwebapp": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('alertrules_react_via_agw_devboqwebapp_e215fba6_f2ee_410e_8b27_1ec9b1b3a31f_name')]",
+                "description": "",
+                "isEnabled": true,
+                "condition": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition",
+                    "dataSource": {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                        "resourceUri": "[resourceId('microsoft.insights/webtests', parameters('webtests_react_via_agw_devboqwebapp_name'))]",
+                        "metricNamespace": null,
+                        "metricName": "GSMT_AvRaW"
+                    },
+                    "windowSize": "PT5M",
+                    "failedLocationCount": 3
+                },
+                "action": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+                    "sendToServiceOwners": true,
+                    "customEmails": []
+                }
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/webtests', parameters('webtests_react_via_agw_devboqwebapp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/microsoft.insights/components/devBoqWebApp'.",
+            "type": "microsoft.insights/components",
+            "kind": "web",
+            "name": "[parameters('components_devBoqWebApp_name')]",
+            "apiVersion": "2015-05-01",
+            "location": "eastus",
+            "tags": {
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqWebApp": "Resource",
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqApiWeb": "Resource",
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/ReactFrontend": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "Application_Type": "web",
+                "Flow_Type": null,
+                "Request_Source": "IbizaWebAppExtensionCreate",
+                "HockeyAppId": null,
+                "SamplingPercentage": null
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/microsoft.insights/webtests/react via agw-devboqwebapp'.",
+            "type": "microsoft.insights/webtests",
+            "name": "[parameters('webtests_react_via_agw_devboqwebapp_name')]",
+            "apiVersion": "2015-05-01",
+            "location": "eastus",
+            "tags": {
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/microsoft.insights/components/devBoqWebApp": "Resource",
+                "hidden-link:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqWebApp": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "SyntheticMonitorId": "[parameters('webtests_react_via_agw_devboqwebapp_name')]",
+                "Name": "react via agw",
+                "Description": "",
+                "Enabled": true,
+                "Frequency": 300,
+                "Timeout": 120,
+                "Kind": "ping",
+                "RetryEnabled": true,
+                "Locations": [
+                    {
+                        "Id": "apac-sg-sin-azr"
+                    },
+                    {
+                        "Id": "apac-jp-kaw-edge"
+                    },
+                    {
+                        "Id": "apac-hk-hkn-azr"
+                    },
+                    {
+                        "Id": "emea-au-syd-edge"
+                    }
+                ],
+                "Configuration": {
+                    "WebTest": "<WebTest         Name=\"react via agw\"         Id=\"061d08ea-e110-40e7-910d-c6a79f421c9f\"         Enabled=\"True\"         CssProjectStructure=\"\"         CssIteration=\"\"         Timeout=\"120\"         WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"         CredentialUserName=\"\"         CredentialPassword=\"\"         PreAuthenticate=\"True\"         Proxy=\"default\"         StopOnError=\"False\"         RecordedResultFile=\"\"         ResultsLocale=\"\">        <Items>        <Request         Method=\"GET\"         Guid=\"a8ba4993-73bf-17a9-fd8a-cb29e4521ced\"         Version=\"1.1\"         Url=\"http://devboqpublic.australiaeast.cloudapp.azure.com\"         ThinkTime=\"0\"         Timeout=\"120\"         ParseDependentRequests=\"True\"         FollowRedirects=\"True\"         RecordResult=\"True\"         Cache=\"False\"         ResponseTimeGoal=\"0\"         Encoding=\"utf-8\"         ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\"         ReportingName=\"\"         IgnoreHttpStatusCode=\"False\" />        </Items>        </WebTest>"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/Dev'.",
+            "type": "Microsoft.Network/applicationGateways",
+            "name": "[parameters('applicationGateways_Dev_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "c4a4ca47-41b8-4969-b541-36715f6d0657",
+                "sku": {
+                    "name": "WAF_Medium",
+                    "tier": "WAF",
+                    "capacity": 1
+                },
+                "gatewayIPConfigurations": [
+                    {
+                        "name": "appGatewayIpConfig",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_devEnvironmentResourceGroup_name'), parameters('subnets_default_name_2'))]"
+                            }
+                        }
+                    }
+                ],
+                "sslCertificates": [],
+                "authenticationCertificates": [],
+                "frontendIPConfigurations": [
+                    {
+                        "name": "appGatewayFrontendIP",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Dev_Waf_ip_name'))]"
+                            }
+                        }
+                    }
+                ],
+                "frontendPorts": [
+                    {
+                        "name": "appGatewayFrontendPort",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "port": 80
+                        }
+                    },
+                    {
+                        "name": "api",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "port": 88
+                        }
+                    },
+                    {
+                        "name": "apiListener",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "port": 8080
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "appGatewayBackendPool",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "backendAddresses": [
+                                {
+                                    "fqdn": "reactfrontend.azurewebsites.net"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "apiPool",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "backendAddresses": [
+                                {
+                                    "fqdn": "[concat(parameters('applicationGateways_Dev_name'),'devboqwebapp.azurewebsites.net')]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "backendHttpSettingsCollection": [
+                    {
+                        "name": "appGatewayBackendHttpSettings",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "port": 80,
+                            "protocol": "Http",
+                            "cookieBasedAffinity": "Disabled",
+                            "pickHostNameFromBackendAddress": true,
+                            "path": null,
+                            "requestTimeout": 30,
+                            "probe": {
+                                "id": "[parameters('applicationGateways_Dev_id')]"
+                            }
+                        }
+                    }
+                ],
+                "httpListeners": [
+                    {
+                        "name": "appGatewayHttpListener",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('applicationGateways_Dev_id_1')]"
+                            },
+                            "frontendPort": {
+                                "id": "[parameters('applicationGateways_Dev_id_2')]"
+                            },
+                            "protocol": "Http",
+                            "requireServerNameIndication": false
+                        }
+                    },
+                    {
+                        "name": "apiListener",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "frontendIPConfiguration": {
+                                "id": "[parameters('applicationGateways_Dev_id_3')]"
+                            },
+                            "frontendPort": {
+                                "id": "[parameters('applicationGateways_Dev_id_4')]"
+                            },
+                            "protocol": "Http",
+                            "requireServerNameIndication": false
+                        }
+                    }
+                ],
+                "urlPathMaps": [
+                    {
+                        "name": "apiPath",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "defaultBackendAddressPool": {
+                                "id": "[parameters('applicationGateways_Dev_id_5')]"
+                            },
+                            "defaultBackendHttpSettings": {
+                                "id": "[parameters('applicationGateways_Dev_id_6')]"
+                            },
+                            "pathRules": [
+                                {
+                                    "name": "API",
+                                    "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                                    "properties": {
+                                        "provisioningState": "Succeeded",
+                                        "paths": [
+                                            "/api"
+                                        ],
+                                        "backendAddressPool": {
+                                            "id": "[parameters('applicationGateways_Dev_id_7')]"
+                                        },
+                                        "backendHttpSettings": {
+                                            "id": "[parameters('applicationGateways_Dev_id_8')]"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "requestRoutingRules": [
+                    {
+                        "name": "rule1",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "ruleType": "Basic",
+                            "httpListener": {
+                                "id": "[parameters('applicationGateways_Dev_id_9')]"
+                            },
+                            "backendAddressPool": {
+                                "id": "[parameters('applicationGateways_Dev_id_10')]"
+                            },
+                            "backendHttpSettings": {
+                                "id": "[parameters('applicationGateways_Dev_id_11')]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "apiPath",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "ruleType": "PathBasedRouting",
+                            "httpListener": {
+                                "id": "[parameters('applicationGateways_Dev_id_12')]"
+                            },
+                            "urlPathMap": {
+                                "id": "[parameters('applicationGateways_Dev_id_13')]"
+                            }
+                        }
+                    }
+                ],
+                "probes": [
+                    {
+                        "name": "webappprobe2",
+                        "etag": "W/\"b6968c94-97ad-4840-9369-6f9a42d06a8e\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "Http",
+                            "path": "/",
+                            "interval": 30,
+                            "timeout": 120,
+                            "unhealthyThreshold": 3,
+                            "pickHostNameFromBackendHttpSettings": true,
+                            "minServers": 0,
+                            "match": {
+                                "body": "",
+                                "statusCodes": [
+                                    "200-399"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "redirectConfigurations": [],
+                "webApplicationFirewallConfiguration": {
+                    "enabled": true,
+                    "firewallMode": "Detection",
+                    "ruleSetType": "OWASP",
+                    "ruleSetVersion": "3.0",
+                    "disabledRuleGroups": []
+                },
+                "enableHttp2": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_devEnvironmentResourceGroup_name'), parameters('subnets_default_name_2'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Dev_Waf_ip_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/applicationGateways/dev3-agw'.",
+            "type": "Microsoft.Network/applicationGateways",
+            "name": "[parameters('applicationGateways_dev3_agw_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "e7aa867e-b15a-49a8-a152-64f0a53c5231",
+                "sku": {
+                    "name": "WAF_Medium",
+                    "tier": "WAF",
+                    "capacity": 1
+                },
+                "gatewayIPConfigurations": [
+                    {
+                        "name": "appGatewayIpConfig",
+                        "etag": "W/\"051d2202-a3d9-4f9e-a687-55dca41ff28b\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_dev3_vnet_name'), parameters('subnets_default_name_1'))]"
+                            }
+                        }
+                    }
+                ],
+                "sslCertificates": [],
+                "authenticationCertificates": [],
+                "frontendIPConfigurations": [
+                    {
+                        "name": "appGatewayFrontendIP",
+                        "etag": "W/\"051d2202-a3d9-4f9e-a687-55dca41ff28b\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_dev3_agw_ip_name'))]"
+                            }
+                        }
+                    }
+                ],
+                "frontendPorts": [
+                    {
+                        "name": "appGatewayFrontendPort",
+                        "etag": "W/\"051d2202-a3d9-4f9e-a687-55dca41ff28b\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "port": 80
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "appGatewayBackendPool",
+                        "etag": "W/\"051d2202-a3d9-4f9e-a687-55dca41ff28b\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "backendAddresses": [
+                                {
+                                    "fqdn": "devboqwebapp.azurewebsites.net"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "backendHttpSettingsCollection": [
+                    {
+                        "name": "appGatewayBackendHttpSettings",
+                        "etag": "W/\"051d2202-a3d9-4f9e-a687-55dca41ff28b\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "port": 80,
+                            "protocol": "Http",
+                            "cookieBasedAffinity": "Disabled",
+                            "pickHostNameFromBackendAddress": true,
+                            "requestTimeout": 30,
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_Dev_name')), '3-agw/probes/webappprobe2')]"
+                            }
+                        }
+                    }
+                ],
+                "httpListeners": [
+                    {
+                        "name": "appGatewayHttpListener",
+                        "etag": "W/\"051d2202-a3d9-4f9e-a687-55dca41ff28b\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_Dev_name')), '3-agw/frontendIPConfigurations/appGatewayFrontendIP')]"
+                            },
+                            "frontendPort": {
+                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_Dev_name')), '3-agw/frontendPorts/appGatewayFrontendPort')]"
+                            },
+                            "protocol": "Http",
+                            "requireServerNameIndication": false
+                        }
+                    }
+                ],
+                "urlPathMaps": [],
+                "requestRoutingRules": [
+                    {
+                        "name": "rule1",
+                        "etag": "W/\"051d2202-a3d9-4f9e-a687-55dca41ff28b\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "ruleType": "Basic",
+                            "httpListener": {
+                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_Dev_name')), '3-agw/httpListeners/appGatewayHttpListener')]"
+                            },
+                            "backendAddressPool": {
+                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_Dev_name')), '3-agw/backendAddressPools/appGatewayBackendPool')]"
+                            },
+                            "backendHttpSettings": {
+                                "id": "[concat(resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_Dev_name')), '3-agw/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
+                            }
+                        }
+                    }
+                ],
+                "probes": [
+                    {
+                        "name": "webappprobe2",
+                        "etag": "W/\"051d2202-a3d9-4f9e-a687-55dca41ff28b\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "Http",
+                            "path": "/",
+                            "interval": 30,
+                            "timeout": 120,
+                            "unhealthyThreshold": 3,
+                            "pickHostNameFromBackendHttpSettings": true,
+                            "minServers": 0,
+                            "match": {
+                                "statusCodes": [
+                                    "200-399"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "redirectConfigurations": [],
+                "webApplicationFirewallConfiguration": {
+                    "enabled": true,
+                    "firewallMode": "Detection",
+                    "ruleSetType": "OWASP",
+                    "ruleSetVersion": "3.0",
+                    "disabledRuleGroups": []
+                },
+                "enableHttp2": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_dev3_vnet_name'), parameters('subnets_default_name_1'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_dev3_agw_ip_name'))]",
+                "[resourceId('Microsoft.Network/applicationGateways', parameters('applicationGateways_Dev_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/publicIPAddresses/Dev-Waf-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_Dev_Waf_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "7d8f8ff2-c5af-464c-b37d-2297053acc66",
+                "ipAddress": "13.75.193.48",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "devboqpublic",
+                    "fqdn": "devboqpublic.australiaeast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/publicIPAddresses/dev2-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_dev2_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "126d3684-93f2-42d4-937f-68d5371f7ac9",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "dev2qdigital",
+                    "fqdn": "dev2qdigital.australiaeast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/publicIPAddresses/dev3-agw-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_dev3_agw_ip_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "39bd1c8d-c5cd-4c4b-80b8-9e6ff350c479",
+                "ipAddress": "13.75.217.157",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "dev3qdigital",
+                    "fqdn": "dev3qdigital.australiaeast.cloudapp.azure.com"
+                },
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/virtualNetworks/dev2-vnet'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_dev2_vnet_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "37a1bce6-ad23-48db-b185-c337b4792f89",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.2.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"10230660-45ca-4bde-9deb-ade8594112e6\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.2.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/virtualNetworks/dev3-vnet'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_dev3_vnet_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "e707a8cd-69eb-42c4-872d-b79b565169cd",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.1.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"066b1dae-714b-4288-a593-4fb05ee958bb\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.1.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/virtualNetworks/devEnvironmentResourceGroup'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_devEnvironmentResourceGroup_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "australiaeast",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "0f71e946-3dbe-4809-98ea-004563eebc40",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"2c7873e4-5276-430b-92d9-f111762708f6\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/serverfarms/BoqStandardServicePlan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "S1",
+                "tier": "Standard",
+                "size": "S1",
+                "family": "S",
+                "capacity": 1
+            },
+            "kind": "app",
+            "name": "[parameters('serverfarms_BoqStandardServicePlan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "Australia East",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_BoqStandardServicePlan_name')]",
+                "workerTierName": null,
+                "adminSiteName": null,
+                "hostingEnvironmentProfile": null,
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqWebApp'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_devBoqWebApp_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "tags": {
+                "hidden-related:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/serverfarms/BoqStandardServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_devBoqWebApp_name'),'devboqwebapp.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_devBoqWebApp_name'),'devboqwebapp.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_BoqStandardServicePlan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_BoqStandardServicePlan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/ReactFrontend'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_ReactFrontend_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "tags": {
+                "hidden-related:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/serverfarms/BoqStandardServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_ReactFrontend_name'),'reactfrontend.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_ReactFrontend_name'),'reactfrontend.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_BoqStandardServicePlan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_BoqStandardServicePlan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqApiWeb'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_devBoqApiWeb_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "tags": {
+                "hidden-related:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/serverfarms/BoqStandardServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_devBoqApiWeb_name'),'devboqapiweb.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_devBoqApiWeb_name'),'devboqapiweb.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_BoqStandardServicePlan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_BoqStandardServicePlan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/virtualNetworks/dev2-vnet/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_dev2_vnet_name'), '/', parameters('subnets_default_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.2.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_dev2_vnet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/virtualNetworks/dev3-vnet/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_dev3_vnet_name'), '/', parameters('subnets_default_name_1'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.1.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_dev3_vnet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Network/virtualNetworks/devEnvironmentResourceGroup/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_devEnvironmentResourceGroup_name'), '/', parameters('subnets_default_name_2'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_devEnvironmentResourceGroup_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqWebApp/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[concat(parameters('sites_devBoqWebApp_name'), '/', parameters('config_web_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "tags": {
+                "hidden-related:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/serverfarms/BoqStandardServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "windowsFxVersion": null,
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2012",
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "[concat('$devBoqWebApp')]",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "VSTSRM",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": {
+                    "allowedOrigins": [
+                        "*"
+                    ]
+                },
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "xManagedServiceIdentityId": null,
+                "ipSecurityRestrictions": [
+                    {
+                        "ipAddress": "13.75.193.48"
+                    },
+                    {
+                        "ipAddress": "13.75.217.157"
+                    }
+                ],
+                "http20Enabled": false,
+                "minTlsVersion": "1.0",
+                "ftpsState": "AllAllowed"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_devBoqWebApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqWebApp/deployments/51530596085606'.",
+            "type": "Microsoft.Web/sites/deployments",
+            "name": "[concat(parameters('sites_devBoqWebApp_name'), '/', parameters('deployments_51530596085606_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_51530596085606_name')]",
+                "status": 4,
+                "author_email": "",
+                "author": "Damien Berry",
+                "deployer": "VSTS",
+                "message": "{\"type\":\"Deployment\",\"commitId\":\"2ca0d101b4c2e482eeff2ce0f587f7f08a727c3c\",\"buildId\":\"243\",\"releaseId\":\"5\",\"buildNumber\":\"20180703.1\",\"releaseName\":\"Release-1\",\"repoProvider\":\"TfsGit\",\"repoName\":\"AppServiceDemo\",\"collectionUrl\":\"https://qdigitalcode.visualstudio.com/\",\"teamProject\":\"0e465833-f498-491e-892d-5ae542070e79\",\"slotName\":\"production\"}",
+                "start_time": "2018-07-03T05:34:46.9875686Z",
+                "end_time": "2018-07-03T05:34:46.9875686Z",
+                "active": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_devBoqWebApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqWebApp/hostNameBindings/devboqwebapp.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_devBoqWebApp_name'), '/', parameters('hostNameBindings_devboqwebapp.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "scale": null,
+            "properties": {
+                "siteName": "devBoqWebApp",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_devBoqWebApp_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/ReactFrontend/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[concat(parameters('sites_ReactFrontend_name'), '/', parameters('config_web_name_2'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "tags": {
+                "hidden-related:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/serverfarms/BoqStandardServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "windowsFxVersion": null,
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2012",
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$ReactFrontend",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "VSTSRM",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": true,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": true,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "xManagedServiceIdentityId": null,
+                "ipSecurityRestrictions": [
+                    {
+                        "ipAddress": "13.75.193.48"
+                    }
+                ],
+                "http20Enabled": false,
+                "minTlsVersion": "1.0",
+                "ftpsState": "AllAllowed"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_ReactFrontend_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/ReactFrontend/deployments/41530594852477'.",
+            "type": "Microsoft.Web/sites/deployments",
+            "name": "[concat(parameters('sites_ReactFrontend_name'), '/', parameters('deployments_41530594852477_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_41530594852477_name')]",
+                "status": 4,
+                "author_email": "",
+                "author": "Fabrizio Lallai",
+                "deployer": "VSTS",
+                "message": "{\"type\":\"Deployment\",\"commitId\":\"64142b456fc22a3488e7acff446453cfbc8b43a9\",\"buildId\":\"242\",\"releaseId\":\"4\",\"buildNumber\":\"20180703.2\",\"releaseName\":\"Release-4\",\"repoProvider\":\"TfsGit\",\"repoName\":\"Azure Cloud\",\"collectionUrl\":\"https://qdigitalcode.visualstudio.com/\",\"teamProject\":\"0e465833-f498-491e-892d-5ae542070e79\",\"slotName\":\"production\"}",
+                "start_time": "2018-07-03T05:14:13.3435391Z",
+                "end_time": "2018-07-03T05:14:13.3435391Z",
+                "active": true
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_ReactFrontend_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/ReactFrontend/deployments/31530593681895'.",
+            "type": "Microsoft.Web/sites/deployments",
+            "name": "[concat(parameters('sites_ReactFrontend_name'), '/', parameters('deployments_31530593681895_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_31530593681895_name')]",
+                "status": 4,
+                "author_email": "",
+                "author": "Fabrizio Lallai",
+                "deployer": "VSTS",
+                "message": "{\"type\":\"Deployment\",\"commitId\":\"4d91fb9ec0902282a5f4b58038df22838e25fcd8\",\"buildId\":\"241\",\"releaseId\":\"3\",\"buildNumber\":\"20180703.1\",\"releaseName\":\"Release-3\",\"repoProvider\":\"TfsGit\",\"repoName\":\"Azure Cloud\",\"collectionUrl\":\"https://qdigitalcode.visualstudio.com/\",\"teamProject\":\"0e465833-f498-491e-892d-5ae542070e79\",\"slotName\":\"production\"}",
+                "start_time": "2018-07-03T04:54:42.7861764Z",
+                "end_time": "2018-07-03T04:54:42.7861764Z",
+                "active": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_ReactFrontend_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/ReactFrontend/deployments/21530507140582'.",
+            "type": "Microsoft.Web/sites/deployments",
+            "name": "[concat(parameters('sites_ReactFrontend_name'), '/', parameters('deployments_21530507140582_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_21530507140582_name')]",
+                "status": 4,
+                "author_email": "",
+                "author": "Nathen Street",
+                "deployer": "VSTS",
+                "message": "{\"type\":\"Deployment\",\"commitId\":\"ba85730a383406d344b3c26c71299c5e317d2558\",\"buildId\":\"237\",\"releaseId\":\"2\",\"buildNumber\":\"20180702.2\",\"releaseName\":\"Release-2\",\"repoProvider\":\"TfsGit\",\"repoName\":\"Azure Cloud\",\"collectionUrl\":\"https://qdigitalcode.visualstudio.com/\",\"teamProject\":\"0e465833-f498-491e-892d-5ae542070e79\",\"slotName\":\"production\"}",
+                "start_time": "2018-07-02T04:52:21.4969814Z",
+                "end_time": "2018-07-02T04:52:21.4969814Z",
+                "active": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_ReactFrontend_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/ReactFrontend/deployments/11530505093552'.",
+            "type": "Microsoft.Web/sites/deployments",
+            "name": "[concat(parameters('sites_ReactFrontend_name'), '/', parameters('deployments_11530505093552_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "scale": null,
+            "properties": {
+                "id": "[parameters('deployments_11530505093552_name')]",
+                "status": 4,
+                "author_email": "",
+                "author": "Nathen Street",
+                "deployer": "VSTS",
+                "message": "{\"type\":\"Deployment\",\"commitId\":\"11ba1aa7ebc5a87b76013d5c67dc3004efd71c44\",\"buildId\":\"236\",\"releaseId\":\"1\",\"buildNumber\":\"20180702.1\",\"releaseName\":\"Release-1\",\"repoProvider\":\"TfsGit\",\"repoName\":\"Azure Cloud\",\"collectionUrl\":\"https://qdigitalcode.visualstudio.com/\",\"teamProject\":\"0e465833-f498-491e-892d-5ae542070e79\",\"slotName\":\"production\"}",
+                "start_time": "2018-07-02T04:18:26.7616375Z",
+                "end_time": "2018-07-02T04:18:26.7616375Z",
+                "active": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_ReactFrontend_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/ReactFrontend/hostNameBindings/reactfrontend.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_ReactFrontend_name'), '/', parameters('hostNameBindings_reactfrontend.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "scale": null,
+            "properties": {
+                "siteName": "ReactFrontend",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_ReactFrontend_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqApiWeb/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[concat(parameters('sites_devBoqApiWeb_name'), '/', parameters('config_web_name_1'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "tags": {
+                "hidden-related:/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourcegroups/devEnvironmentResourceGroup/providers/Microsoft.Web/serverfarms/BoqStandardServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "windowsFxVersion": null,
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2012",
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "[concat('$devBoqApiWeb', parameters('config_web_name_1'))]",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": false,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "xManagedServiceIdentityId": null,
+                "ipSecurityRestrictions": [
+                    {
+                        "ipAddress": "52.237.205.163"
+                    },
+                    {
+                        "ipAddress": "52.237.202.159"
+                    },
+                    {
+                        "ipAddress": "52.237.203.85"
+                    },
+                    {
+                        "ipAddress": "52.237.206.206"
+                    },
+                    {
+                        "ipAddress": "52.237.202.76"
+                    },
+                    {
+                        "ipAddress": "23.101.221.132"
+                    }
+                ],
+                "http20Enabled": false,
+                "minTlsVersion": "1.0",
+                "ftpsState": "AllAllowed"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_devBoqApiWeb_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/3dd301e7-317f-4166-b5cd-92d446521096/resourceGroups/devEnvironmentResourceGroup/providers/Microsoft.Web/sites/devBoqApiWeb/hostNameBindings/devboqapiweb.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_devBoqApiWeb_name'), '/', parameters('hostNameBindings_devboqapiweb.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Australia East",
+            "scale": null,
+            "properties": {
+                "siteName": "devBoqApiWeb",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_devBoqApiWeb_name'))]"
+            ]
+        }
+    ]
+}
